@@ -1,21 +1,13 @@
 public class Solution {
-   
-     // Below solution will fail when multiple diuplicated zeros
-    //HashSet<int> t2set=new HashSet<int>();
     public IList<IList<int>> ThreeSum(int[] nums) {        
         List<IList<int>> res = new List<IList<int>>();
         int len = nums.Length, target=0;
         if(len<=2)
             return res;
-        //Array.Sort(nums);
-        //HashSet<int> dups=new HashSet<int>();
-        Dictionary<int, int> dups = new Dictionary<int, int>();
         Dictionary<int, int> seen = new Dictionary<int, int>();
-        //Dictionary<int, int> dd = new HashSet();
         HashSet<string> tset=new HashSet<string>();
         for(int i=0; i<len; ++i){
             int t=0;
-            if(true || dups.TryGetValue(nums[i], out t) !=true){ //
                 //dups.Add(nums[i], i);
                 for(int j= 0; j<len && i!=j; ++j){ // TWO SUM value
                     int find = target - nums[i] - nums[j];
@@ -37,7 +29,7 @@ public class Solution {
                         seen.Add(nums[j], j);
                     }
                 }
-            }
+            
         }
        
         return res;
