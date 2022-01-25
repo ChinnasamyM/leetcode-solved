@@ -70,7 +70,7 @@ public class Solution {
             }
             return result;
     }
-    /*
+    /* // Below solution will faiol when multiple diuplicated zeros
     //HashSet<int> t2set=new HashSet<int>();
     public IList<IList<int>> ThreeSum(int[] nums) {
         int len = nums.Length; //, target=0;
