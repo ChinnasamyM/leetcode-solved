@@ -14,13 +14,13 @@ public class Solution {
                 if( Math.Abs(find - target) < Math.Abs(res - target) )
                     res = find;
                 
-                //pointers increments
+                //pointers increments//
                 // move start-pointer if the absolute diff is lesser than target
                 if(find < target)
                     j++;
                 else if(find > target) // move end-pointer if abs diff is greater
                     k--;
-                else
+                else // reached collision point and no more diff to find as its sorted array
                     return res;                
             }
         }
