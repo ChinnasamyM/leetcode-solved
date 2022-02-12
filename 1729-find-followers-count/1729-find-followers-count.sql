@@ -7,4 +7,4 @@ from followers as u order by u.user_id
 */
 
 select user_id, COUNT(follower_id ) as 'followers_count' from followers 
-group by user_id having count(follower_id)>0
+group by user_id --having count(follower_id)>0
