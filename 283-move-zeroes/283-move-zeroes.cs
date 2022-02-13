@@ -10,7 +10,7 @@ public class Solution {
                 nums[i] =0;
                 curr++;                
             }
-            else if(nums[i]!=0 && numops<=0)
+            else if(nums[i]!=0 && numops<=0) // Possibility when first element is not zero and requires to maintain the curr position
                 curr++;
             i++;
         }
