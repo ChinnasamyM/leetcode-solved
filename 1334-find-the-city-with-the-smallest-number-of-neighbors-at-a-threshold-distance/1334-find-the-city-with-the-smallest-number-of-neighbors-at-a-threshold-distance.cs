@@ -1,6 +1,6 @@
 public class Solution {
     public int FindTheCity(int n, int[][] edges, int distanceThreshold) {
-     // using floyd warshal alg
+       // using floyd warshal alg
         
         // create an DP table 
         int[,] dp = new int[n,n];
@@ -10,7 +10,7 @@ public class Solution {
                 if(i==j)
                     dp[i,j]=0; //As no cyclic loop to same element then fill its weight is zero
                 else
-                    dp[i,j] = Int32.MaxValue/2; // divide by 2 is not required if start use with Long array with Max int32. This csae int is enough per 2 <= n <= 100
+                    dp[i,j] = Int32.MaxValue/2;
             }
         // As the given graph is a bi-directional, hence we need to fill its both the dirrectios of wight. if not given the same weigh for both dirs
         foreach(int[] e in edges){// As the reverse direction is not given hence filling its forward diorection weight for reverse position too
@@ -45,6 +45,6 @@ public class Solution {
             }
         }
         
-        return ans;
+        return ans; 
     }
 }
