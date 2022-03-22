@@ -1,9 +1,34 @@
 public class Solution {
     public int LongestArithSeqLength(int[] nums) {
         int len =nums.Length;
+        int result = 0;
         if(len<2)
-            return 0;
+            return result;
         
+        // Create a map array of size n
+        Dictionary<int, int>[] dp = new Dictionary<int, int>[len];
+        
+        // Iterate the numbers in the array
+        for (int i = 0; i < len; ++i) {
+            
+            // Create a new dictionary for this index
+            dp[i] = new Dictionary<int, int>();
+            
+            // Iterate over values to the left of i
+            for (int j = 0; j < i; ++j) {
+                // Get the difference between the two numbers
+                int currentDiff = nums[i] - nums[j];
+                
+                // Update the count matching the difference already seen from j for i
+                dp[i][currentDiff] = (dp[j].ContainsKey(currentDiff) ? dp[j][currentDiff] : 0) + 1;
+                
+                // Keep track of the max difference count
+                result = Math.Max(result, dp[i][currentDiff]);                
+            }
+        }
+        
+        return result + 1;
+        /*
         Dictionary<int,int>[] dp = new Dictionary<int,int>[len];
         int ans = 2;
         for (int j = 0; j < len; j++){
@@ -20,6 +45,7 @@ public class Solution {
             }
         }
         return ans;
+        */
         /*
         // Below sln will mfail with these pattern as we can calc per differemce pattern alone... [83,20,17,43,52,78,68,45] 
         // To make it work we need to add AP-subsequence validation and return the successfull max one.
